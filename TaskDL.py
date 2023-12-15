@@ -18,7 +18,7 @@
 import time
 import shutil
 import numpy as np
-import tensorflow as tf 
+import tensorflow as tf
 import os
 import requests
 import matplotlib.pyplot as plt
@@ -74,19 +74,19 @@ test_datagen = ImageDataGenerator(rescale = 1./255)
 # Now to actually put the images into the right datasets. The training dataset is formed using the training directory that I made earlier in the program. I give these images a size of 300 by 300 which will be the input shape of the model. Of course the class_mode is set to categorical because I use 5 categories.
 
 # %%
-training_set = train_val_datagen.flow_from_directory('C://flowers/training',
+training_set = train_val_datagen.flow_from_directory('./training',
                                                  subset='training',
                                                  target_size = (300, 300),
                                                  batch_size = 32,
                                                  class_mode = 'categorical') 
 
-validation_set = train_val_datagen.flow_from_directory('C://flowers/training',
+validation_set = train_val_datagen.flow_from_directory('./training',
                                                  subset='validation',
                                                  target_size = (300, 300),
                                                  batch_size = 32,
                                                  class_mode = 'categorical')
 
-test_set = test_datagen.flow_from_directory('C://flowers/test',
+test_set = test_datagen.flow_from_directory('./test',
                                             target_size = (300, 300),
                                             batch_size = 32,
                                             class_mode = 'categorical')
